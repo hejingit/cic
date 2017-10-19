@@ -52,5 +52,6 @@ public class MainApplicion extends SpringBootServletInitializer {
 	String home() {
 		return "index";
 	}
+	
 }
 

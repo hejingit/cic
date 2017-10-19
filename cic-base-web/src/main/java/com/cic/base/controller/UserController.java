@@ -40,5 +40,6 @@ public class UserController {
     public Object listAll() {
         return userMapper.selectAll();
     }
+    
 }
 
