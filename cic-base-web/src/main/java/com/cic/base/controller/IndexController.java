@@ -14,7 +14,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cic.base.mapper.UserMapper;
@@ -28,16 +27,17 @@ import com.cic.base.mapper.UserMapper;
  * @version  
  * @see 	 
  */
+
 @Controller
+@RequestMapping("/test/")
 public class IndexController {
 	@Autowired
     private UserMapper userMapper;
 	
-	@RequestMapping(value="/index",method=RequestMethod.GET)
-	@ResponseBody
+	@RequestMapping("main")
 	public String mainPageInfo(Map<String, Object> model){
 		model.put("pos", userMapper.selectAll());
-		return "/index";
+		return "index";
 	}
 }
 

@@ -9,9 +9,19 @@
 
 package com.cic;
 
+import java.util.Map;
+
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.cic.base.mapper.UserMapper;
 
 /**
  * ClassName:MainApplicion <br/>
@@ -25,9 +35,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //MyBatis 支持
 @MapperScan("com.cic.base.mapper")
 @SpringBootApplication
-public class MainApplicion {
+@Controller
+public class MainApplicion extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(MainApplicion.class);
+	}
 	public static void main(String[] args) throws Exception {
         SpringApplication.run(MainApplicion.class, args);
     }
+	@Autowired
+    private UserMapper userMapper;
+	
+	@RequestMapping("/")
+	String home() {
+		return "index";
+	}
 }
 

@@ -28,6 +28,7 @@
         <tr>
             <th colspan="3" align="center">Messages</th>
         </tr>
+        ${pos}
         <tr>
             <td>Id</td>
             <td>Name</td>

@@ -18,7 +18,6 @@ public class App
     {
         System.out.println( "Hello World!" );
         SpringApplication.run(App.class, args);
-        org.cic.base.util.App.show();
     }
     @RequestMapping("/")
     @ResponseBody
